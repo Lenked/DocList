@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Doclist</title>
+
+    <script src="https://unpkg.com/htmx.org@1.8.0"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="data:image/jpeg;base64,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">
+
+</head>
+<body bgcolor="bluesky">
+
+<div class="container mx-auto mt-5">
+<header class="d-flex align-items-center gap-2 mb-4">
+    <img src="![](../../../../../../../AppData/Local/Temp/4552718.png)" alt="Todo List">
+    <h1 class="mb-0">TodoList</h1>
+</header>
+
+<div class="row">
+    <div class="col-4">
+<nav id="collections" class="list-group" role="tablist">
+    {% for collection in collections %} 
+        {% include 'tasks/collection.html' with collection=collection %}
+    {% endfor %}
+</nav>
+    
+    <form method="POST" class="d-flex gap-2 mt-2">
+        {% csrf_token %}
+
+        <input type="text" name="collection-name" placeholder="Collection..." class="form-control">
+        <button class="btn btn-success"
+                hx-post="{% url 'add-collection' %}"
+                hx-target="#collections"
+                hx-swap="beforeend"
+                type="submit">Ajouter
+        </button>
+
+    </form>
+</div>
+
+    <main class="col-8">
+
+    <form method="POST" class="d-flex gap-2">
+        {% csrf_token %}
+        
+        <input type="text" name="task-description" placeholder="Tache..." class="form-control">
+        <button class="btn btn-success"
+                hx-post="{% url 'add-task' %}"
+                hx-target="#tasks"
+                hx-vals='js:{"collection": getCollectionFromURL()}'
+                hx-swap="beforeend"
+                type="submit">
+            Ajouter
+        </button>
+    </form>
+
+
+    <section id="tasks-container">
+        {% include 'tasks/tasks.html' with tasks=tasks collection=collection %}
+    </section>
+        </main>
+
+</div>
+</div>
+    <script>
+        document.body.addEventListener("htmx:responseError", function(evt){
+            alert(evt.detail.xhr.responseText);
+        })
+
+        function getCollectionFromURL(){
+            let url = new URL(window.location.href);
+            let searchParams = url.searchParams;
+            return searchParams.get("collection")
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
